@@ -1,0 +1,590 @@
+/* Font Face */
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir-Black.woff2') format('woff2'),
+         url('Avenir-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    overflow-x: hidden;
+    background: #000;
+    color: #fff;
+}
+
+/* Smooth scrolling with snap */
+.sections-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-padding: 0;
+}
+
+/* Smooth scroll for all elements */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hide scrollbar but keep functionality */
+.sections-container::-webkit-scrollbar {
+    display: none;
+}
+
+.sections-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Section Base */
+.section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    position: relative;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 5.5vh 4.4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    mix-blend-mode: difference;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.logo sup {
+    font-size: 10px;
+}
+
+.hamburger {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background: #ff0000;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-title {
+    font-family: 'Avenir', sans-serif;
+    font-size: clamp(100px, 42vw, 8000px);
+    font-weight: 900;
+    letter-spacing: 0px;
+    line-height: 100vh;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin-right: 2vw;
+}
+
+.hero-line {
+    display: block;
+    background: url('hero.gif') center center / 100vw 100vh;
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    transform: scaleY(1.4);
+    transform-origin: center;
+}
+
+.hero-subtitle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero-subtitle span {
+    position: absolute;
+    bottom: 2vh;
+    font-size: clamp(24px, 4vw, 60px);
+    font-weight: 900;
+    color: #fff;
+}
+
+.hero-subtitle span:first-child {
+    left: 2vw;
+}
+
+.hero-subtitle span:last-child {
+    right: 2vw;
+}
+
+/* About Section */
+.about-section {
+    background: #ff0000;
+}
+
+.about-content {
+    max-width: 1400px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+    align-items: center;
+}
+
+.about-title {
+    font-family: 'Avenir', sans-serif;
+    font-size: clamp(80px, 10vw, 120px);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.title-line {
+    display: block;
+    position: relative;
+}
+
+.highlight-box {
+    display: inline-block;
+    height: clamp(45px, 12vw, 90px);
+    background: #fff;
+    border-radius: 20px;
+    vertical-align: middle;
+    margin: 0;
+    transform: translateY(-14px);
+}
+
+.contact-btn {
+    padding: 18px 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    background: #fff;
+    color: #ff0000;
+}
+
+.about-right p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+/* Work Section */
+.work-section {
+    background: #0f0f1a;
+}
+
+.work-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5vw;
+}
+
+.work-title {
+    font-size: clamp(90px, 10vw, 180px);
+    font-weight: 900;
+    color: #ff0000;
+    writing-mode: sideways-lr;
+    text-orientation: mixed;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    letter-spacing: -0.02em;
+}
+
+.work-grid {
+    display: flex;
+    gap: 16px;
+    height: 75vh;
+    max-height: 750px;
+    width: 100vw;
+    max-width: 1000px;
+    margin-left: 20vw;
+}
+
+.work-vertical {
+    flex: 0 0 30%;
+    height: 100%;
+}
+
+.work-vertical .work-image {
+    width: 400px;
+    height: 605px;
+    background: #ff0000;
+    border-radius: 32px;
+}
+
+.work-horizontal-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    height: 100%;
+}
+
+.work-horizontal {
+    flex: 1;
+}
+
+.work-horizontal .work-image {
+    width: 480px;
+    height: 270px;
+    background: #ff0000;
+    border-radius: 32px;
+}
+
+.work-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+}
+
+.work-item:hover .work-image {
+    box-shadow: 0 20px 60px rgba(255, 0, 0, 0.3);
+}
+
+.work-description {
+    color: #ff0000;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.view-all-btn {
+    padding: 18px 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 60px auto 0;
+}
+
+.view-all-btn:hover {
+    background: #fff;
+    color: #0f0f1a;
+}
+
+/* Horizontal Slider Section */
+.slider-section {
+    background: #000;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.services-section {
+    background: #0f0f1a;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.section-heading {
+    font-size: clamp(40px, 6vw, 80px);
+    font-weight: 900;
+    color: #ff0000;
+    margin-bottom: 20px;
+}
+
+.horizontal-slider {
+    width: 90%;
+    max-width: 1400px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 40px;
+}
+
+.slide {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+}
+
+.slide-content {
+    text-align: center;
+    max-width: 800px;
+}
+
+.slide-content h3 {
+    font-size: clamp(50px, 8vw, 120px);
+    font-weight: 900;
+    color: #ff0000;
+    margin-bottom: 30px;
+    letter-spacing: -0.02em;
+}
+
+.slide-content p {
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.6;
+    color: #fff;
+}
+
+/* Service Slides */
+.service-slide {
+    background: rgba(255, 0, 0, 0.05);
+    border-radius: 30px;
+    padding: 80px 60px;
+}
+
+.service-content {
+    text-align: left;
+    max-width: 600px;
+}
+
+.service-icon {
+    font-size: 80px;
+    font-weight: 900;
+    color: #ff0000;
+    margin-bottom: 30px;
+    opacity: 0.3;
+}
+
+.service-content h3 {
+    font-size: 48px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.service-content p {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Slider Controls */
+.slider-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.slider-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-btn:hover {
+    background: #ff0000;
+    border-color: #ff0000;
+    transform: scale(1.1);
+}
+
+.slider-dots {
+    display: flex;
+    gap: 12px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #ff0000;
+    width: 40px;
+    border-radius: 6px;
+}
+
+/* Contact Section */
+.contact-section {
+    background: #ff0000;
+}
+
+.contact-content {
+    max-width: 1400px;
+    width: 90%;
+    text-align: center;
+}
+
+.contact-title {
+    font-size: clamp(60px, 10vw, 140px);
+    font-weight: 900;
+    color: #000;
+    margin-bottom: 80px;
+    line-height: 1.1;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 60px;
+    margin-top: 60px;
+}
+
+.contact-item h4 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.contact-item p {
+    font-size: 18px;
+    color: #000;
+    line-height: 1.6;
+}
+
+@keyframes scrollDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(350%);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .work-grid {
+        grid-template-columns: 1fr;
+        margin-left: 0;
+    }
+
+    .work-title {
+        position: static;
+        writing-mode: horizontal-tb;
+        transform: none;
+        margin-bottom: 40px;
+    }
+
+    .navbar {
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-subtitle {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .slide {
+        padding: 40px 20px;
+    }
+
+    .service-slide {
+        padding: 60px 40px;
+    }
+
+    .slider-controls {
+        gap: 20px;
+    }
+
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}

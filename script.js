@@ -1,8 +1,172 @@
-// Hamburger Menu Animation
+// Hamburger Menu & Fullscreen Menu
 const hamburger = document.getElementById('hamburger');
+const fullscreenMenu = document.getElementById('fullscreenMenu');
+const menuClose = document.getElementById('menuClose');
+const menuLinks = document.querySelectorAll('.menu-link');
 
+// Toggle menu open
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
+    fullscreenMenu.classList.toggle('active');
+    document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : '';
+});
+
+// Close menu with close button
+menuClose.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    fullscreenMenu.classList.remove('active');
+    document.body.style.overflow = '';
+});
+
+// Menu link clicks
+menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Get target section
+        const targetId = link.getAttribute('data-section');
+        
+        // Close menu
+        hamburger.classList.remove('active');
+        fullscreenMenu.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Scroll to section with smooth animation
+        setTimeout(() => {
+            if (targetId === 'section1') {
+                // Ana sayfaya çıkmak için
+                window.scrollTo({ 
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                // Diğer bölümler için
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        }, 300);
+        
+        // Update active state
+        menuLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+    });
+});
+
+// Update active menu item on scroll
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('.section');
+    const scrollPosition = window.pageYOffset + 200;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            menuLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-section') === sectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+
+// Work Modal Functionality
+const workModal = document.getElementById('workModal');
+const modalClose = document.getElementById('modalClose');
+const modalOverlay = document.querySelector('.modal-overlay');
+const modalImage = document.getElementById('modalImage');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
+
+// Work items data
+const workData = {
+    1: {
+        title: 'Modern Landscape Project',
+        image: 'hero.gif',
+        description: `
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        `
+    },
+    2: {
+        title: 'Garden Design Excellence',
+        image: 'hero.gif',
+        description: `
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+        `
+    },
+    3: {
+        title: 'Urban Green Space',
+        image: 'hero.gif',
+        description: `
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+        `
+    },
+    4: {
+        title: 'Sustainable Park Design',
+        image: 'hero.gif',
+        description: `
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+        `
+    },
+    5: {
+        title: 'Contemporary Outdoor Living',
+        image: 'hero.gif',
+        description: `
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+            <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p>
+        `
+    }
+};
+
+// Open modal function
+function openWorkModal(workId) {
+    const data = workData[workId];
+    if (!data) return;
+
+    modalImage.src = data.image;
+    modalTitle.textContent = data.title;
+    modalDescription.innerHTML = data.description;
+
+    workModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close modal function
+function closeWorkModal() {
+    workModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Add click events to work items
+document.querySelectorAll('.work-item').forEach(item => {
+    item.addEventListener('click', () => {
+        const workId = item.getAttribute('data-work');
+        openWorkModal(workId);
+    });
+});
+
+// Close modal events
+modalClose.addEventListener('click', closeWorkModal);
+modalOverlay.addEventListener('click', closeWorkModal);
+
+// Close modal with ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && workModal.classList.contains('active')) {
+        closeWorkModal();
+    }
 });
 
 // Horizontal Slider Functionality
@@ -160,18 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slider2 = new HorizontalSlider('sliderTrack2', 'sliderDots2', 2);
 });
 
-// Scroll Indicator fade out on scroll
-const sectionsContainer = document.querySelector('.sections-container');
-const scrollIndicator = document.querySelector('.scroll-indicator');
-
-sectionsContainer.addEventListener('scroll', () => {
-    if (sectionsContainer.scrollTop > 100) {
-        scrollIndicator.style.opacity = '0';
-    } else {
-        scrollIndicator.style.opacity = '1';
-    }
-});
-
 // Smooth scroll to sections (optional navigation implementation)
 function scrollToSection(sectionId) {
     const section = document.getElementById(sectionId);
@@ -180,19 +332,41 @@ function scrollToSection(sectionId) {
     }
 }
 
-// Parallax effect on hero section
-const heroSection = document.querySelector('.hero-section');
-const heroContent = document.querySelector('.hero-content');
-
-sectionsContainer.addEventListener('scroll', () => {
-    const scrolled = sectionsContainer.scrollTop;
-    const sectionHeight = heroSection.offsetHeight;
+// Scroll-based animation for About section
+function handleAboutScroll() {
+    const aboutSection = document.querySelector('.about-section');
+    const aboutLeft = document.querySelector('.about-left');
+    const aboutRight = document.querySelector('.about-right');
     
-    if (scrolled < sectionHeight) {
-        const parallaxSpeed = 0.5;
-        heroContent.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+    if (!aboutSection || !aboutLeft || !aboutRight) return;
+    
+    const rect = aboutSection.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Calculate scroll progress (0 to 1)
+    // Starts when section enters viewport, completes when it's centered
+    const scrollProgress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight * 0.6)));
+    
+    if (scrollProgress > 0) {
+        // Left side - slide from left (-300px to 0)
+        const leftTransform = -300 + (scrollProgress * 300);
+        aboutLeft.style.transform = `translateX(${leftTransform}px)`;
+        
+        // Right side - slide from right (300px to 0)
+        const rightTransform = 300 - (scrollProgress * 300);
+        aboutRight.style.transform = `translateX(${rightTransform}px)`;
+    } else {
+        // Reset when scrolled back up
+        aboutLeft.style.transform = 'translateX(-300px)';
+        aboutRight.style.transform = 'translateX(300px)';
     }
-});
+}
+
+// Listen to scroll events
+window.addEventListener('scroll', handleAboutScroll);
+
+// Initial check on page load
+window.addEventListener('load', handleAboutScroll);
 
 // Add animation on scroll for work items
 const observerOptions = {
@@ -302,48 +476,6 @@ document.head.appendChild(entranceStyle);
 
 console.log('🚀 Fullscreen scrolling website loaded successfully!');
 
-// Smooth wheel scrolling
-let isScrolling = false;
-let scrollTimeout;
+// Smooth scrolling behavior - Natural flow like BBDO.com
+// No wheel hijacking, just natural smooth scroll
 
-sectionsContainer.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    
-    if (isScrolling) return;
-    
-    isScrolling = true;
-    
-    // Smooth scroll with easing
-    const delta = Math.sign(e.deltaY);
-    const scrollAmount = delta * window.innerHeight;
-    const startPosition = sectionsContainer.scrollTop;
-    const targetPosition = startPosition + scrollAmount;
-    const duration = 800; // Smooth transition duration in ms
-    const startTime = performance.now();
-    
-    function easeInOutCubic(t) {
-        return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    }
-    
-    function animateScroll(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeProgress = easeInOutCubic(progress);
-        
-        sectionsContainer.scrollTop = startPosition + (scrollAmount * easeProgress);
-        
-        if (progress < 1) {
-            requestAnimationFrame(animateScroll);
-        } else {
-            isScrolling = false;
-        }
-    }
-    
-    requestAnimationFrame(animateScroll);
-    
-    // Reset scrolling flag after duration
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-        isScrolling = false;
-    }, duration + 100);
-}, { passive: false });

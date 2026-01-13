@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REALITE - Do New Things</title>
+    <title>BY PLANT</title>
+    <link rel="icon" type="image/x-icon" href="bylogo.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,6 +18,40 @@
         </div>
     </nav>
 
+    <!-- Fullscreen Menu -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <button class="menu-close" id="menuClose">&times;</button>
+        <div class="menu-content">
+            <div class="menu-left">
+                <ul class="menu-links">
+                    <li><a href="#section1" class="menu-link" data-section="section1">ANASAYFA</a></li>
+                    <li><a href="#section2" class="menu-link" data-section="section2">HAKKIMIZDA</a></li>
+                    <li><a href="#section3" class="menu-link" data-section="section3">PROJELER</a></li>
+                    <li><a href="#section6" class="menu-link" data-section="section6">HİZMETLER</a></li>
+                    <li><a href="#section7" class="menu-link" data-section="section7">SÜREÇ</a></li>
+                    <li><a href="#section8" class="menu-link active" data-section="section8">İLETİŞİM</a></li>
+                </ul>
+            </div>
+            <div class="menu-right">
+                <div class="menu-info">
+                    <h4>ADRES</h4>
+                    <p>İstanbul, Türkiye</p>
+                </div>
+                <div class="menu-info">
+                    <h4>Tel</h4>
+                    <p>+90 546 436 66 42</p>
+                </div>
+                <div class="menu-social">
+                    <h4>SOSYAL</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/byplantt/" target="_blank">Instagram</a>
+                        <a href="#" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Fullscreen Sections Container -->
     <div class="sections-container">
         
@@ -25,6 +60,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">
                     <span class="hero-line">BY</span>
+                    <span class="hero-vertical-text">PLANT</span>
                 </h1>
                 <div class="hero-subtitle">
                     <span>landscape</span>
@@ -38,17 +74,16 @@
             <div class="about-content">
                 <div class="about-left">
                     <h2 class="about-title">
-                        <span class="title-line">YEŞİLİ <span style="width: clamp(150px, 14vw, 300px);" class="highlight-box"></span></span>
+                        <span class="title-line">YEŞİLİ <span style="width: clamp(150px, 21vw, 360px);" class="highlight-box"></span></span>
                         <span class="title-line"><span style="width: clamp(130px, 14vw, 260px);" class="highlight-box"></span> SANATA</span>
                         <span class="title-line">DÖNÜŞTÜRÜ-</span>
                         <span class="title-line"><span style="width: clamp(150px, 17vw, 360px);" class="highlight-box"></span> YORUZ.</span>
                     </h2>
                 </div>
                 <div class="about-right">
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut</p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut</p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi</p>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                    <p>By Plant Peyzaj, 2022 yılında doğa ile insan arasındaki ilişkiyi daha samimi, daha gerçek ve daha kalıcı bir zeminde kurma isteğiyle kuruldu.</p>
+                    <p>Biz her mekâna aynı yerden bakmıyoruz. Çünkü biliyoruz ki bir bahçe, bir teras ya da bir iç mekân; yalnızca tasarlanacak bir alan değil, içinde yaşanacak bir hikâyedir. Bu yüzden projelerimize başlarken önce mekânı, sonra o mekânı kullanan insanı dinleriz.</p>
+                    <p>Estetik bizim için önemlidir ama tek başına yeterli değildir. İşlevsellik, sürdürülebilirlik ve doğanın kendi dengesiyle uyumlu çözümler üretmek, By Plant yaklaşımının temelini oluşturur. Amacımız; doğayı yüzeysel bir dekor olarak kullanmak değil, yaşamın doğal bir parçası hâline getirmektir.</p>
                     <button class="contact-btn">İLETİŞİME GEÇ</button>
                 </div>
             </div>
@@ -59,18 +94,18 @@
             <div class="work-content">
                 <h2 class="work-title">WORK</h2>
                 <div class="work-grid">
-                    <div class="work-vertical work-item">
-                        <div class="work-image"></div>
-                        <p class="work-description">Lorem ipsum dolor sit amet,</p>
+                    <div class="work-vertical work-item" data-work="1">
+                        <div class="work-image" style="background-image: url('hero.gif'); background-size: cover; background-position: center;"></div>
+                        <p class="work-description">Modern Landscape Project</p>
                     </div>
                     <div class="work-horizontal-wrapper">
-                        <div class="work-horizontal work-item">
-                            <div class="work-image"></div>
-                            <p class="work-description">Lorem ipsum dolor sit amet,</p>
+                        <div class="work-horizontal work-item" data-work="2">
+                            <div class="work-image" style="background-image: url('hero.gif'); background-size: cover; background-position: center;"></div>
+                            <p class="work-description">Garden Design Excellence</p>
                         </div>
-                        <div class="work-horizontal work-item">
-                            <div class="work-image"></div>
-                            <p class="work-description">Lorem ipsum dolor sit amet,</p>
+                        <div class="work-horizontal work-item" data-work="3">
+                            <div class="work-image" style="background-image: url('hero.gif'); background-size: cover; background-position: center;"></div>
+                            <p class="work-description">Urban Green Space</p>
                         </div>
                     </div>
                 </div>
@@ -81,13 +116,13 @@
         <section class="section work-section" id="section4">
             <div class="work-content">
                 <div class="work-grid">
-                    <div class="work-item">
-                        <div class="work-image"></div>
-                        <p class="work-description">Lorem ipsum dolor sit amet,</p>
+                    <div class="work-item" data-work="4">
+                        <div class="work-image" style="background-image: url('hero.gif'); background-size: cover; background-position: center;"></div>
+                        <p class="work-description">Sustainable Park Design</p>
                     </div>
-                    <div class="work-item">
-                        <div class="work-image"></div>
-                        <p class="work-description">Lorem ipsum dolor sit amet,</p>
+                    <div class="work-item" data-work="5">
+                        <div class="work-image" style="background-image: url('hero.gif'); background-size: cover; background-position: center;"></div>
+                        <p class="work-description">Contemporary Outdoor Living</p>
                     </div>
                 </div>
                 <button class="view-all-btn">VIEW ALL WORK</button>
@@ -100,28 +135,29 @@
                 <div class="slider-track" id="sliderTrack1">
                     <div class="slide">
                         <div class="slide-content">
-                            <h3>Project 01</h3>
-                            <p>Innovative digital experience with cutting-edge design</p>
+                            <h3>Villa Bahçesi</h3>
+                            <p>Modern yaşam alanlarında doğanın en saf haliyle buluşması</p>
                         </div>
                     </div>
                     <div class="slide">
                         <div class="slide-content">
-                            <h3>Project 02</h3>
-                            <p>Creative solutions for modern challenges</p>
+                            <h3>Konut Peyzajı</h3>
+                            <p>İşlevsel ve estetik çözümlerle yaşam kalitesi</p>
                         </div>
                     </div>
                     <div class="slide">
                         <div class="slide-content">
-                            <h3>Project 03</h3>
-                            <p>Brand identity that makes an impact</p>
+                            <h3>Özel Bahçeler</h3>
+                            <p>Kişiye özel tasarımlarla benzersiz mekânlar</p>
                         </div>
                     </div>
                     <div class="slide">
                         <div class="slide-content">
-                            <h3>Project 04</h3>
-                            <p>Digital transformation for the future</p>
+                            <h3>İç Mekan Yeşili</h3>
+                            <p>Yapay ve doğal bitkilendirme çözümleri</p>
                         </div>
                     </div>
+                    
                 </div>
             </div>
             <div class="slider-controls">
@@ -131,37 +167,46 @@
             </div>
         </section>
 
-        <!-- Section 6: Services Slider -->
+        <!-- Section 6: Services - Neler Yapıyoruz -->
         <section class="section services-section" id="section6">
-            <h2 class="section-heading">OUR SERVICES</h2>
+            <h2 class="section-heading">NELER YAPIYORUZ?</h2>
+            <div class="services-intro">
+                <p class="services-main-text">By Plant Peyzaj olarak; bireysel konutlardan villa bahçelerine, ortak yaşam alanlarından özel kullanım alanlarına kadar farklı ölçekteki mekânlar için tasarım ve uygulama hizmetleri sunuyoruz.</p>
+                <p class="services-question">Her projede aynı soruyu sorarız:<br><strong>Bu alan gerçekten nasıl yaşanacak?</strong></p>
+                <p class="services-approach">Mekânın ruhunu, kullanıcı alışkanlıklarını ve uzun vadeli bakım ihtiyaçlarını birlikte değerlendirir; hazır kalıplar yerine, o alana ait çözümler üretiriz. Amacımız ilk gün güzel görünen değil, zamanla değer kazanan mekânlar tasarlamaktır.</p>
+            </div>
             <div class="horizontal-slider">
                 <div class="slider-track" id="sliderTrack2">
                     <div class="slide service-slide">
                         <div class="service-content">
                             <div class="service-icon">01</div>
-                            <h3>Brand Strategy</h3>
-                            <p>Creating compelling brand identities that resonate with your target audience and stand out in the market.</p>
+                            <h3>İç Mekân & Özel Çalışmalar</h3>
+                            <p>Çalışmalarımız yalnızca dış mekânlarla sınırlı kalmaz. İç mekânlarda da yeşilin mekânla kurduğu ilişkiyi koruyarak, bakım gerektirmeyen ama doğallık hissini kaybetmeyen yapay bitkilendirme çözümleri sunarız.</p>
+                            <p>Doğayı sanatla buluşturan yosun uygulamalarımızla ise yaşam alanlarına sakin, dengeli ve zamansız dokunuşlar katmayı amaçlarız. Bu çalışmalar, yalnızca görsel bir etki yaratmak için değil; mekâna anlam katmak için vardır.</p>
                         </div>
                     </div>
                     <div class="slide service-slide">
                         <div class="service-content">
                             <div class="service-icon">02</div>
-                            <h3>Digital Design</h3>
-                            <p>Crafting beautiful and functional digital experiences that engage users and drive results.</p>
+                            <h3>Yaklaşımımız</h3>
+                            <p>Her ölçekteki projede amacımız aynıdır: Estetik, işlev ve doğayı birbirinden ayırmadan, mekânın uzun vadeli bir parçası hâline getirmek.</p>
+                            <p>By Plant Peyzaj olarak imzamızı; gösterişli ama yorucu çözümlerle değil, sade, düşünülmüş ve gerçekten yaşayan mekânlarla atıyoruz.</p>
                         </div>
                     </div>
                     <div class="slide service-slide">
                         <div class="service-content">
                             <div class="service-icon">03</div>
-                            <h3>Web Development</h3>
-                            <p>Building responsive and performant websites using the latest technologies and best practices.</p>
+                            <h3>Misyon</h3>
+                            <p>By Plant'in misyonu; her projede mekânın fiziksel koşullarını, kullanım alışkanlıklarını ve uzun vadeli ihtiyaçlarını doğru okuyarak, estetik ve işlevi dengede tutan çözümler üretmektir.</p>
+                            <p>Hazır kalıplar yerine, bulunduğu yere ait ve sürdürülebilir tasarımlar geliştirir; uygulama sürecinde bu tasarım anlayışını titizlikle hayata geçirir.</p>
                         </div>
                     </div>
                     <div class="slide service-slide">
                         <div class="service-content">
                             <div class="service-icon">04</div>
-                            <h3>Marketing</h3>
-                            <p>Developing data-driven marketing strategies that grow your business and reach your goals.</p>
+                            <h3>Vizyon</h3>
+                            <p>By Plant, peyzaj tasarımını geçici bir müdahale değil, mekânın karakterini belirleyen uzun vadeli bir süreç olarak ele alan bir anlayışın temsilcisi olmayı hedefler.</p>
+                            <p>Zamana dayanıklı, abartıdan uzak ve bulunduğu alanla uyumlu projelerle; nitelikli tasarımın sessiz ama güçlü bir etki yaratabileceğini göstermeyi amaçlar.</p>
                         </div>
                     </div>
                 </div>
@@ -173,22 +218,47 @@
             </div>
         </section>
 
-        <!-- Section 7: Contact -->
-        <section class="section contact-section" id="section7">
+        <!-- Section 7: How We Work - Nasıl Çalışıyoruz -->
+        <section class="section how-we-work-section" id="section7">
+            <div class="how-content">
+                <h2 class="how-title">NASIL ÇALIŞIYORUZ?</h2>
+                <div class="how-grid">
+                    <div class="how-item">
+                        <div class="how-number">01</div>
+                        <h3>Okuruz.</h3>
+                        <p>Her projeye çizimle değil, mekânı anlamakla başlarız. Alanın sınırlarını, kullanım biçimini ve gerçek ihtiyaçlarını doğru okumadan tasarım üretmeyiz.</p>
+                    </div>
+                    <div class="how-item">
+                        <div class="how-number">02</div>
+                        <h3>Geliştiririz.</h3>
+                        <p>Gereksiz hiçbir öğeyi tasarımın parçası hâline getirmeyiz. Az ama yerinde çözümlerle, mekânın kendi karakterini ön plana çıkarırız.</p>
+                    </div>
+                    <div class="how-item">
+                        <div class="how-number">03</div>
+                        <h3>Uygularız.</h3>
+                        <p>Tasarımı kâğıt üzerinde bırakmaz, uygulama sürecinde de aynı titizlikle hayata geçiririz. Ortaya çıkan işin, çizildiği gibi işlemesini önemseriz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Contact -->
+        <section class="section contact-section" id="section8">
             <div class="contact-content">
-                <h2 class="contact-title">LET'S CREATE<br>SOMETHING NEW</h2>
+                <h2 class="contact-title">HADI<br>KONUŞALIM</h2>
                 <div class="contact-info">
                     <div class="contact-item">
                         <h4>Email</h4>
-                        <p>hello@realite.com</p>
+                        <p>byplanttr@gmail.com</p>
                     </div>
                     <div class="contact-item">
-                        <h4>Phone</h4>
-                        <p>+1 234 567 8900</p>
+                        <h4>İletişim Bilgileri</h4>
+                        <p>Peyzaj Mimarı Betül YILMAZ - 05464366642 </p>
+                        <p>Peyzaj Mimarı Yasemin KUL - 05414737886 </p>
                     </div>
                     <div class="contact-item">
-                        <h4>Address</h4>
-                        <p>123 Creative Street<br>New York, NY 10001</p>
+                        <h4>Adres</h4>
+                        <p>Samsun, Türkiye</p>
                     </div>
                 </div>
             </div>
@@ -196,6 +266,26 @@
 
     </div>
 
+    <!-- Work Modal -->
+    <div class="work-modal" id="workModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modalImage" src="" alt="Work Image">
+                </div>
+                <div class="modal-text">
+                    <h2 id="modalTitle">Project Title</h2>
+                    <div class="modal-description" id="modalDescription">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
+

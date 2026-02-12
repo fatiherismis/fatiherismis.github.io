@@ -82,78 +82,181 @@ window.addEventListener('scroll', () => {
 const workModal = document.getElementById('workModal');
 const modalClose = document.getElementById('modalClose');
 const modalOverlay = document.querySelector('.modal-overlay');
-const modalImage = document.getElementById('modalImage');
+const modalBeforeImage = document.getElementById('modalBeforeImage');
+const modalAfterImage = document.getElementById('modalAfterImage');
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
+const modalCategory = document.getElementById('modalCategory');
+const modalDate = document.getElementById('modalDate');
+const modalArea = document.getElementById('modalArea');
 
-// Work items data
+// Work items data with before/after images
 const workData = {
     1: {
-        title: 'Modern Landscape Project',
-        image: 'hero.gif',
+        title: 'Modern Villa Bahçesi',
+        beforeImage: 'hero.gif',
+        afterImage: 'hero.gif',
+        category: 'Villa Bahçesi',
+        date: '2024',
+        area: '350 m²',
         description: `
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            <p>Modern villa bahçesi projemiz, minimalist tasarım anlayışı ile doğal materyallerin mükemmel uyumunu yansıtıyor. Proje öncesinde düzensiz ve bakımsız olan alan, şık ve işlevsel bir yaşam alanına dönüştürüldü.</p>
+            <p>Doğal taş döşemeler, özenle seçilmiş bitki örtüsü ve modern peyzaj elemanları kullanılarak estetik ve fonksiyonel bir dış mekan tasarlandı.</p>
         `
     },
     2: {
-        title: 'Garden Design Excellence',
-        image: 'hero.gif',
+        title: 'Kentsel Yeşil Alan',
+        beforeImage: 'hero.gif',
+        afterImage: 'hero.gif',
+        category: 'Kentsel Peyzaj',
+        date: '2024',
+        area: '500 m²',
         description: `
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+            <p>Şehrin kalbinde yer alan bu proje, beton yığınları arasında doğal bir soluk aldırıyor. Modern kent yaşamının gerektirdiği işlevsellik ile doğanın huzuru bir araya getirildi.</p>
+            <p>Sürdürülebilir peyzaj tasarımı ve yerel bitki türleri kullanılarak çevre dostu bir alan yaratıldı.</p>
         `
     },
     3: {
-        title: 'Urban Green Space',
-        image: 'hero.gif',
+        title: 'Çatı Bahçesi Tasarımı',
+        beforeImage: 'hero.gif',
+        afterImage: 'hero.gif',
+        category: 'Çatı Bahçesi',
+        date: '2023',
+        area: '180 m²',
         description: `
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
-            <p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+            <p>Yükseklerde yeşilin huzurunu yaşatan çatı bahçesi projemiz, sınırlı alanda maksimum yeşil alan yaratma hedefiyle tasarlandı.</p>
+            <p>Hafif toprak sistemleri ve özel bitki seçimleri ile çatıya uygun, bakımı kolay ve estetik bir peyzaj oluşturuldu.</p>
         `
     },
     4: {
-        title: 'Sustainable Park Design',
-        image: 'hero.gif',
+        title: 'Sürdürülebilir Peyzaj',
+        beforeImage: 'hero.gif',
+        afterImage: 'hero.gif',
+        category: 'Sürdürülebilir Tasarım',
+        date: '2023',
+        area: '420 m²',
         description: `
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
-            <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+            <p>Çevre dostu ve yenilikçi çözümlerle tasarlanan bu proje, su tasarrufu sağlayan sulama sistemleri ve yerel bitki türleri kullanımı ile dikkat çekiyor.</p>
+            <p>Geri dönüşümlü malzemeler ve enerji verimli aydınlatma sistemleri ile sürdürülebilir bir peyzaj örneği oluşturuldu.</p>
         `
     },
     5: {
-        title: 'Contemporary Outdoor Living',
-        image: 'hero.gif',
+        title: 'İç Mekan Bitkilendirme',
+        beforeImage: 'hero.gif',
+        afterImage: 'hero.gif',
+        category: 'İç Mekan Peyzajı',
+        date: '2023',
+        area: '200 m²',
         description: `
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
-            <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.</p>
+            <p>Ofis ve yaşam alanlarına yeşil dokunuş katarak iç mekan kalitesini artıran projemiz, modern iş hayatının stresini azaltmayı hedefliyor.</p>
+            <p>Özel aydınlatma sistemleri ve düşük bakım gerektiren bitki türleri ile iç mekanlara doğal bir atmosfer kazandırıldı.</p>
+        `
+    },
+    6: {
+        title: 'Klasik Bahçe Restorasyonu',
+        beforeImage: 'hero.gif',
+        afterImage: 'hero.gif',
+        category: 'Restorasyon',
+        date: '2022',
+        area: '600 m²',
+        description: `
+            <p>Geleneksel bahçe düzenlemesini modern yorumla harmanlayan restorasyon projemiz, tarihi dokuyu koruyarak çağdaş konfor standartlarını sunuyor.</p>
+            <p>Klasik bahçe elemanları özenle restore edilirken, modern sulama ve aydınlatma sistemleri entegre edildi.</p>
         `
     }
 };
+
+// Before/After Slider Functionality
+let isDragging = false;
+let comparisonSlider = null;
+let comparisonHandle = null;
+let afterImage = null;
+
+function initBeforeAfterSlider() {
+    comparisonSlider = document.getElementById('comparisonSlider');
+    comparisonHandle = document.getElementById('comparisonHandle');
+    afterImage = document.querySelector('.after-image');
+    
+    if (!comparisonSlider || !comparisonHandle || !afterImage) return;
+
+    // Mouse events
+    comparisonHandle.addEventListener('mousedown', startDragging);
+    document.addEventListener('mousemove', onDragging);
+    document.addEventListener('mouseup', stopDragging);
+
+    // Touch events
+    comparisonHandle.addEventListener('touchstart', startDragging);
+    document.addEventListener('touchmove', onDragging);
+    document.addEventListener('touchend', stopDragging);
+
+    // Click on slider to move handle
+    comparisonSlider.addEventListener('click', (e) => {
+        if (e.target === comparisonHandle || comparisonHandle.contains(e.target)) return;
+        moveHandle(e);
+    });
+}
+
+function startDragging(e) {
+    isDragging = true;
+    comparisonHandle.style.transition = 'none';
+    e.preventDefault();
+}
+
+function stopDragging() {
+    isDragging = false;
+    comparisonHandle.style.transition = 'transform 0.2s ease';
+}
+
+function onDragging(e) {
+    if (!isDragging) return;
+    moveHandle(e);
+}
+
+function moveHandle(e) {
+    const rect = comparisonSlider.getBoundingClientRect();
+    const x = (e.type.includes('touch') ? e.touches[0].clientX : e.clientX) - rect.left;
+    const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    
+    // Update handle position
+    comparisonHandle.style.left = `${percentage}%`;
+    
+    // Update after image clip path
+    afterImage.style.clipPath = `inset(0 0 0 ${percentage}%)`;
+}
 
 // Open modal function
 function openWorkModal(workId) {
     const data = workData[workId];
     if (!data) return;
 
-    modalImage.src = data.image;
+    modalBeforeImage.src = data.beforeImage;
+    modalAfterImage.src = data.afterImage;
     modalTitle.textContent = data.title;
     modalDescription.innerHTML = data.description;
+    modalCategory.textContent = data.category;
+    modalDate.textContent = data.date;
+    modalArea.textContent = data.area;
 
     workModal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    // Initialize slider after modal opens
+    setTimeout(() => {
+        initBeforeAfterSlider();
+    }, 100);
 }
 
 // Close modal function
 function closeWorkModal() {
     workModal.classList.remove('active');
     document.body.style.overflow = '';
+    isDragging = false;
 }
 
-// Add click events to work items
-document.querySelectorAll('.work-item').forEach(item => {
-    item.addEventListener('click', () => {
-        const workId = item.getAttribute('data-work');
+// Add click events to work cards
+document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('click', () => {
+        const workId = card.getAttribute('data-work');
         openWorkModal(workId);
     });
 });
@@ -331,6 +434,15 @@ function scrollToSection(sectionId) {
 
 // Scroll-based animation for About section
 function handleAboutScroll() {
+    // Disable scroll animation on mobile for better performance
+    if (window.innerWidth <= 768) {
+        const aboutLeft = document.querySelector('.about-left');
+        const aboutRight = document.querySelector('.about-right');
+        if (aboutLeft) aboutLeft.style.transform = 'translateX(0)';
+        if (aboutRight) aboutRight.style.transform = 'translateX(0)';
+        return;
+    }
+    
     const aboutSection = document.querySelector('.about-section');
     const aboutLeft = document.querySelector('.about-left');
     const aboutRight = document.querySelector('.about-right');
@@ -601,3 +713,118 @@ console.log('✨ All modern features activated!');
 
 // Smooth scrolling behavior - Natural flow like BBDO.com
 // No wheel hijacking, just natural smooth scroll
+
+// ===== LOADING SCREEN & CURSOR REMOVED =====
+// Loading screen ve custom cursor kaldırıldı
+
+// ===== STATS COUNTER REMOVED =====
+// İstatistik sayacı kaldırıldı
+
+// ===== FAQ ACCORDION =====
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all items
+        faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+        });
+        
+        // Toggle clicked item
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
+
+// ===== SCROLL ANIMATIONS FOR SECTIONS =====
+const animatedSections = document.querySelectorAll('.stats-section, .faq-section');
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+        }
+    });
+}, { threshold: 0.1 });
+
+animatedSections.forEach(section => {
+    sectionObserver.observe(section);
+});
+
+// ===== HERO STAYS FIXED (NO PARALLAX) =====
+// Hero artık sabit, hareket etmiyor
+
+// ===== ENHANCED NAVBAR SCROLL =====
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 100) {
+        navbar.classList.add('scrolled');
+        
+        // Hide on scroll down, show on scroll up
+        if (currentScroll > lastScroll && currentScroll > 300) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+    } else {
+        navbar.classList.remove('scrolled');
+        navbar.style.transform = 'translateY(0)';
+    }
+    
+    lastScroll = currentScroll;
+});
+
+// ===== SMOOTH REVEAL ANIMATIONS =====
+const revealElements = document.querySelectorAll('.about-title, .work-grid, .service-slide, .how-item, .contact-item');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+
+revealElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'all 0.8s ease';
+    revealObserver.observe(el);
+});
+
+// ===== WHATSAPP BUTTON REMOVED =====
+// WhatsApp butonu kaldırıldı
+
+// ===== PERFORMANCE: DEBOUNCE SCROLL EVENTS =====
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debounce to heavy scroll handlers
+const debouncedScrollHandler = debounce(() => {
+    // Heavy scroll operations here
+}, 100);
+
+window.addEventListener('scroll', debouncedScrollHandler);
+
+console.log('✅ BY PLANT website loaded successfully!');
+console.log('🎨 FAQ accordion, smooth animations - ACTIVE');
+console.log('📱 Responsive design, optimized performance - READY');
+

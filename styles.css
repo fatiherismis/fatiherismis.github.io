@@ -8,6 +8,17 @@
     font-display: swap;
 }
 
+/* Font Face - Styro Bold */
+@font-face {
+    font-family: 'Styro';
+    src: url('WEB/fonts/Styro-Bold.woff2') format('woff2'),
+         url('WEB/fonts/Styro-Bold.woff') format('woff'),
+         url('WEB/fonts/Styro-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -162,7 +173,7 @@ body {
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Styro', 'Montserrat', sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: #fff;
@@ -402,9 +413,9 @@ body {
 }
 
 .hero-title {
-    font-family: 'Playball', cursive;
-    font-size: clamp(100px, 42vw, 8000px);
-    font-weight: 400;
+    font-family: 'Styro', 'Playball', cursive;
+    font-size: clamp(90px, 37vw, 7000px);
+    font-weight: 700;
     letter-spacing: 0.03em;
     line-height: 100vh;
     margin: 0;
@@ -422,19 +433,19 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    transform: scaleY(1.4) translateX(-8vw);
+    transform: scaleY(1.4);
     transform-origin: center;
-    animation: slideInFromLeft 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: slideInFromCenter 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-@keyframes slideInFromLeft {
+@keyframes slideInFromCenter {
     0% {
         opacity: 0;
-        transform: scaleY(1.4) translateX(-100vw);
+        transform: scaleY(1.4) scale(0.8);
     }
     100% {
         opacity: 1;
-        transform: scaleY(1.4) translateX(-8vw);
+        transform: scaleY(1.4) scale(1);
     }
 }
 
@@ -445,8 +456,9 @@ body {
     transform: translateY(-50%);
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-family: 'Playball', cursive;
+    font-family: 'Styro', 'Playball', cursive;
     font-size: clamp(100px, 11vw, 190px);
+    font-weight: 700;
     font-weight: 400;
     letter-spacing: 25px;
     background: url('hero.gif') center center / 100vw 100vh;
@@ -1744,7 +1756,7 @@ body {
     }
 
     .hero-line {
-        transform: scaleY(1.4) translateX(-5vw);
+        transform: scaleY(1.4);
     }
 
     .hero-vertical-text {
@@ -1811,7 +1823,7 @@ body {
     }
 
     .hero-line {
-        transform: scaleY(1.4) translateX(-3vw);
+        transform: scaleY(1.4);
     }
 
     .hero-vertical-text {
@@ -2268,8 +2280,8 @@ body {
     
     /* Hero Section */
     .hero-line {
-        font-size: clamp(80px, 35vw, 150px);
-        transform: scaleY(1.4) translateX(-2vw);
+        font-size: clamp(65px, 28vw, 130px);
+        transform: scaleY(1.4);
     }
     
     .hero-vertical-text {
@@ -2587,7 +2599,7 @@ body {
 /* ===== EXTRA SMALL DEVICES (360px and below) ===== */
 @media (max-width: 360px) {
     .hero-line {
-        font-size: clamp(70px, 32vw, 120px);
+        font-size: clamp(55px, 25vw, 100px);
     }
     
     .hero-vertical-text {
@@ -2630,7 +2642,7 @@ body {
     }
     
     .hero-line {
-        font-size: clamp(60px, 25vw, 120px);
+        font-size: clamp(50px, 20vw, 100px);
     }
     
     .hero-vertical-text {

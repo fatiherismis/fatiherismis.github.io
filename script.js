@@ -106,7 +106,7 @@ const workData = {
     },
     2: {
         title: 'Kentsel Yeşil Alan',
-        beforeImage: 'hero.gif',
+        beforeImage: '1.png',
         afterImage: 'hero.gif',
         category: 'Kentsel Peyzaj',
         date: '2024',

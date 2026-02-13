@@ -8,12 +8,12 @@
     font-display: swap;
 }
 
-/* Font Face - Styro Bold */
+/* Font Face - Tanker Regular */
 @font-face {
-    font-family: 'Styro';
-    src: url('WEB/fonts/Styro-Bold.woff2') format('woff2'),
-         url('WEB/fonts/Styro-Bold.woff') format('woff'),
-         url('WEB/fonts/Styro-Bold.ttf') format('truetype');
+    font-family: 'Tanker';
+    src: url('WEB/fonts/Tanker-Regular.woff2') format('woff2'),
+         url('WEB/fonts/Tanker-Regular.woff') format('woff'),
+         url('WEB/fonts/Tanker-Regular.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -173,8 +173,8 @@ body {
 }
 
 .logo {
-    font-family: 'Styro', 'Montserrat', sans-serif;
-    font-size: 18px;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-size: 30px;
     font-weight: 700;
     color: #fff;
     letter-spacing: 2px;
@@ -198,6 +198,7 @@ body {
     cursor: pointer;
     z-index: 10002;
     position: relative;
+    mix-blend-mode: difference;
 }
 
 .hamburger span {
@@ -205,6 +206,7 @@ body {
     height: 2px;
     background: #fff;
     transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 .hamburger.active span:nth-child(1) {
@@ -217,6 +219,14 @@ body {
 
 .hamburger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.navbar.scrolled .hamburger {
+    mix-blend-mode: normal;
+}
+
+.navbar.scrolled .hamburger span {
+    background: #4CAF50;
 }
 
 /* Fullscreen Menu */
@@ -413,8 +423,8 @@ body {
 }
 
 .hero-title {
-    font-family: 'Styro', 'Playball', cursive;
-    font-size: clamp(90px, 37vw, 7000px);
+    font-family: 'Tanker', 'Playball', cursive;
+    font-size: clamp(90px, 31vw, 7000px);
     font-weight: 700;
     letter-spacing: 0.03em;
     line-height: 100vh;
@@ -438,6 +448,28 @@ body {
     animation: slideInFromCenter 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+/* Mobile/Desktop Text Visibility */
+.mobile-text {
+    display: none;
+}
+
+.desktop-text {
+    display: inline;
+}
+
+.mobile-text {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    line-height: 0.85;
+}
+
+.by-text,
+.plant-text {
+    display: block;
+}
+
 @keyframes slideInFromCenter {
     0% {
         opacity: 0;
@@ -456,7 +488,7 @@ body {
     transform: translateY(-50%);
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    font-family: 'Styro', 'Playball', cursive;
+    font-family: 'Tanker', 'Playball', cursive;
     font-size: clamp(100px, 11vw, 190px);
     font-weight: 700;
     font-weight: 400;
@@ -2232,6 +2264,53 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* Mobile text visibility */
+    .desktop-text {
+        display: none !important;
+    }
+    
+    .mobile-text {
+        display: flex !important;
+    }
+    
+    .hero-title {
+        font-size: clamp(70px, 32vw, 250px);
+        line-height: 1.1;
+    }
+    
+    .hero-line {
+        transform: scaleY(1.2);
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(14px, 4vw, 20px);
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    /* Navbar */
+    .navbar {
+        padding: 20px;
+    }
+    
+    .navbar.scrolled {
+        padding: 15px 20px;
+    }
+    
+    .logo {
+        font-size: 16px;
+    }
+    
+    .hamburger {
+        width: 28px;
+        height: 18px;
+    }
+    
+    .hamburger span {
+        height: 2.5px;
+    }
+    
+    /* Rest of 768px styles */
     .moss-section {
         padding: 0 5vw;
     }
@@ -2270,18 +2349,32 @@ body {
     }
     
     .logo {
-        font-size: 16px;
+        font-size: 26px;
     }
     
     .hamburger {
-        width: 25px;
+        width: 26px;
         height: 18px;
     }
     
+    .hamburger span {
+        height: 2.5px;
+    }
+    
     /* Hero Section */
+    .hero-title {
+        font-size: clamp(60px, 28vw, 200px);
+        line-height: 1.1;
+    }
+    
     .hero-line {
-        font-size: clamp(65px, 28vw, 130px);
-        transform: scaleY(1.4);
+        transform: scaleY(1.15);
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(12px, 3.5vw, 18px);
+        gap: 12px;
+        margin-top: 25px;
     }
     
     .hero-vertical-text {
@@ -2598,8 +2691,36 @@ body {
 
 /* ===== EXTRA SMALL DEVICES (360px and below) ===== */
 @media (max-width: 360px) {
+    .navbar {
+        padding: 12px 15px;
+    }
+    
+    .logo {
+        font-size: 14px;
+    }
+    
+    .hamburger {
+        width: 24px;
+        height: 16px;
+    }
+    
+    .hamburger span {
+        height: 2px;
+    }
+    
+    .hero-title {
+        font-size: clamp(50px, 25vw, 160px);
+        line-height: 1.1;
+    }
+    
     .hero-line {
-        font-size: clamp(55px, 25vw, 100px);
+        transform: scaleY(1.1);
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(11px, 3vw, 16px);
+        gap: 10px;
+        margin-top: 20px;
     }
     
     .hero-vertical-text {
@@ -2641,8 +2762,19 @@ body {
         height: 100vh;
     }
     
+    .hero-title {
+        font-size: clamp(45px, 18vw, 120px);
+        line-height: 1.1;
+    }
+    
     .hero-line {
-        font-size: clamp(50px, 20vw, 100px);
+        transform: scaleY(1.15);
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(11px, 3vw, 16px);
+        gap: 10px;
+        margin-top: 20px;
     }
     
     .hero-vertical-text {
@@ -2662,7 +2794,7 @@ body {
 @media (hover: none) and (pointer: coarse) {
     /* Better touch targets */
     .hamburger {
-        padding: 10px;
+        
         margin: -10px;
     }
     
@@ -2721,7 +2853,7 @@ html, body {
 /* ===== SAFE AREA INSETS (for notch devices) ===== */
 @supports (padding: env(safe-area-inset-top)) {
     .navbar {
-        padding-top: calc(5.5vh + env(safe-area-inset-top));
+        padding-top: calc(2vh + env(safe-area-inset-top));
         padding-left: calc(4.4vw + env(safe-area-inset-left));
         padding-right: calc(4.4vw + env(safe-area-inset-right));
     }

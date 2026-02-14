@@ -824,6 +824,20 @@ const debouncedScrollHandler = debounce(() => {
 
 window.addEventListener('scroll', debouncedScrollHandler);
 
+// Scroll Indicator Click
+const scrollIndicator = document.querySelector('.scroll-indicator');
+if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+        const aboutSection = document.getElementById('section2');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+}
+
 console.log('✅ BY PLANT website loaded successfully!');
 console.log('🎨 FAQ accordion, smooth animations - ACTIVE');
 console.log('📱 Responsive design, optimized performance - READY');
